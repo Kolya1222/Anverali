@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block name_web %}
+    <span>Личный аккаунт {{user.username}}</span>
+{% endblock %}
+{% block made %}
+{% if user.is_authenticated %}
+    <div class="input-box2">
+        <table>
+            <thead>
+                <tr>
+                    <th>email:</th>
+                    <th>{{user.email}}</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th>О себе:</th>
+                    <th>{{user.aboutme}}</th>
+                </tr>
+            </thead>
+        </table>
+    </div> 
+    <div class="input-box">   
+        <a href={% url 'logout' %}>Выйти</button> 
+    </div>  
+{% else %}
+<div class="input-box">    
+    <a href="{% url 'login' %}">Войти</a>
+</div>
+{% endif %}  
+{% endblock  %}

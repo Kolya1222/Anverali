@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block name_web %}
+    <span>Личный аккаунт {{user.username}}</span>
+{% endblock %}
+{% block made %}
+{% for client in context %}
+    <div class="pass"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>никнейм:</th>
+                <th>{{client.username}}</th>
+                <th>Кто:</th>
+                <th>{{client.Metric_name}}</th>
+            </tr>
+        </thead>       
+    </table>
+{% endfor %}
+<div class="input-box">    
+    <a href={% url 'logout' %}>Выйти</button>
+</div>        
+{% endblock  %}
